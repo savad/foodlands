@@ -37,9 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'applications.accounts',
     'applications.location',
-    'applications.utils'
+    'applications.utils',
+    'applications.foodland_specifications',
+    'applications.foodlands',
+    'applications.dishes',
+
+    'ckeditor'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -79,8 +85,11 @@ WSGI_APPLICATION = 'foodlands.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'foodlands',
+        'HOST': '',
+        'USER': 'root',
+        'PASSWORD': 'root'
     }
 }
 
