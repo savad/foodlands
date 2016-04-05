@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'applications.accounts',
+    'applications.location',
+    'applications.utils'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -133,3 +136,6 @@ EMAIL_HOST_USER = 'savad.spark@gmail.com'
 DEFAULT_FROM_EMAIL = 'Savad KP <admin@savad.com>'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+
+AUTH_USER_MODEL = 'accounts.User'
