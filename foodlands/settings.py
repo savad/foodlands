@@ -63,7 +63,11 @@ INSTALLED_APPS = [
     'applications.utils',
     'applications.videos',
 
-    'ckeditor'
+    'ckeditor',
+    'dateutil',
+    'tastypie',
+    'lxml',
+    'defusedxml',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -156,6 +160,8 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "staticfiles"),
 ]
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_PASSWORD = '************'
