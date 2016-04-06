@@ -24,7 +24,7 @@ class BaseRestaurantResource(ModelResource):
         "close_time" : 8:30,
         "main_image" : "image.jpg"
         "average_cost" : 20
-        "url" : "example.url/restaurant-slug"
+        "resource_uri" : "example.url/restaurant-slug"
     }
     """
 
