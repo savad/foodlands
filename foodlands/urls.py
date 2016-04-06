@@ -18,7 +18,8 @@ from django.contrib import admin
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-from api.urls import v1_api
+from applications.api.urls import v1_api
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
