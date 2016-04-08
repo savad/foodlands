@@ -1,6 +1,8 @@
-The open-source core of FoodLands, a restaurant and dishes listing, user feeds related to food activities.
+# FoodLands
+The open-source core of FoodLands,
+a web app for online food community and restaurant search discovery services.
 
-##Requirements:
+###Requirements:
 
 FoodLands is built on top of Django and optimized to run on a Linux environment.
 FoodLands's Python requirements are all in the requirements.txt file and easily installable once you have up a virtual environment.
