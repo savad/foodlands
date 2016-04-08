@@ -1,0 +1,293 @@
+{% extends "base.html" %}
+{% load static %}
+{% block titles %}Home{% endblock %}
+{% block extra_js %}
+    <!-- bxSlider Javascript file -->
+    <script src="{% static 'js/jquery.bxslider.min.js' %}"></script>
+    <script>
+        $(document).ready(function(){
+            $('.bxslider').bxSlider();
+        });
+        $(document).ready(function(){
+            // Add smooth scrolling to all links in navbar + footer link
+            $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+            // Prevent default anchor click behavior
+{#          event.preventDefault();#}
+
+            // Store hash
+            var hash = this.hash;
+
+            // Using jQuery's animate() method to add smooth page scroll
+            // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top
+                }, 900, function(){
+
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+                });
+            });
+        })
+    </script>
+{% include "angular/HomePageApp.html" %}
+{% endblock %}
+{% block body_attrs %}{{ block.super }} ng-app="HomePageApp"{% endblock %}
+{% block base_content %}
+<section id="banner" class="section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <h1 class="banner-text">Lorem ipsum dolor sit amet!</h1>
+            <hr class="top-divider">
+            <p class="banner-par">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <div class="class banner-btn">
+              <button class="btn">Button</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section-padding">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-12">
+            <div class="section-head">
+              <h2 class="head-title">Lorem ipsum dolor sit amet,</h2>
+              <p class="head-par">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <br>tempor incididunt ut labore et dolore magna aliqua.</p>
+              <hr>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="wrap-item">
+              <div class="item-img">
+                <img src="{% static 'img/ser01.png' %}">
+              </div>
+              <h3 class="pad-bt15">Lorem ipsum dolor sit amet,</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="wrap-item">
+              <div class="item-img">
+                <img src="{% static 'img/ser02.png' %}">
+              </div>
+              <h3 class="pad-bt15">Lorem ipsum dolor sit amet,</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="wrap-item">
+              <div class="item-img">
+                <img src="{% static 'img/ser03.png' %}">
+              </div>
+              <h3 class="pad-bt15">Lorem ipsum dolor sit amet,</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="wrap-item">
+              <div class="item-img">
+                <img src="{% static 'img/ser04.png' %}">
+              </div>
+              <h3 class="pad-bt15">Lorem ipsum dolor sit amet,</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="service" class="section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+                <h3 class="section-title">Lorem ipsum dolor sit amet</h3>
+                <p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit. ligula convallis, vel tincidunt ipsum posuere</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tempor arcu non ligula convallis, vel tincidunt ipsum posuere. Fusce sodales lacus ut pellentes sollicitudin. Duis iaculis, arcu ut hendrerit pharetra, elit augue pulvinar magna, a consectetur eros quam eu orci. 
+                </p>
+                <a href="#" class="learn-more">Learn more</a>
+                <a href="#" class="visit-portfolio">Visit Our Portfolio</a>
+            </div>
+            <div class="col-md-6">
+            <div class="service-img">
+              <img src="{% static 'img/about01.jpg' %}" class="img-responsive" style="width: 555px; height: 365px;">
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <div class="section-head">
+              <h2 class="head-title">Lorem ipsum dolor sit amet</h2>
+              </hr>
+              <p class="head-par">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <br>tempor incididunt ut labore et dolore magna aliqua.</p>
+              <hr>
+            </div>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12 padding-right-zero mr-btn-15">
+            <img src="{% static 'img/port01.jpg' %}" class="img-responsive">
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12 padding-right-zero mr-btn-15">
+            <img src="{% static 'img/port02.jpg' %}" class="img-responsive">
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12 padding-right-zero mr-btn-15">
+            <img src="{% static 'img/port03.jpg' %}" class="img-responsive">
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12 padding-right-zero mr-btn-15">
+            <img src="{% static 'img/port04.jpg' %}" class="img-responsive">
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12 padding-right-zero mr-btn-15">
+            <img src="{% static 'img/port05.jpg' %}" class="img-responsive">
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12 padding-right-zero mr-btn-15">
+            <img src="{% static 'img/port06.jpg' %}" class="img-responsive">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonial" class="section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-head text-center">
+              <h2 class="head-title white">What Our Foodies Are Saying</h2>
+              <hr>
+            </div>
+          </div>
+          <div class="col-md-offset-3 col-md-6 col-md-offset-3 col-sm-offset-2 col-sm-8 col-sm-offset-2 col-xs-12"> 
+            <ul class="bxslider">
+              <li>
+                <div class="test-content">
+                  <img src="{% static 'img/thumb.png' %}" alt="">
+                  <p><span>John Doe  / </span> CEO of company AS Design Group</p>
+                  We possess within us two minds. So far I have written only of the conscious mind. I would now like to introduce you to your second mind, the hidden and mysterious subconscious.”
+                </div>
+              </li>
+              <li>
+                <div class="test-content">
+                  <img src="{% static 'img/thumb.png' %}" alt="">
+                  <p><span>Astrit Bublaku / </span> MANAGER at Kikirik</p>
+                  We possess within us two minds. So far I have written only of the conscious mind. I would now like to introduce you to your second mind, the hidden and mysterious subconscious.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog" class="section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-head text-center">
+              <h2 class="head-title">Latest From Our Blog</h2>
+              </hr>
+              <p class="head-par">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <br>tempor incididunt ut labore et dolore magna aliqua.</p>
+              <hr>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="blog-sec">
+              <div class="blog-img">
+                <img src="{% static 'img/blog01.jpg' %}" class="img-responsive">
+              </div>
+              <div class="blog-info">
+                <h2>This is Lorem ipsum heading.</h2>
+                <div class="blog-comment">
+                    <p>Posted In: <span>Legal Advice</span></p>
+                    <p>
+                      <span><a href="#"><i class="fa fa-comments"></i></a> 15</span>
+                      <span><a href="#"><i class="fa fa-eye"></i></a> 11</span></p>
+                </div>
+                <p>We cannot expect people to have respect for laws and orders until we teach respect to those we have entrusted to enforce those laws all the time. we always want to help people cordially.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="blog-sec">
+              <div class="blog-img">
+                <img src="{% static 'img/blog02.jpg' %}" class="img-responsive">
+              </div>
+              <div class="blog-info">
+                <h2>This is Lorem ipsum heading.</h2>
+                <div class="blog-comment">
+                    <p>Posted In: <span>Legal Advice</span></p>
+                    <p>
+                      <span><a href="#"><i class="fa fa-comments"></i></a> 15</span>
+                      <span><a href="#"><i class="fa fa-eye"></i></a> 11</span></p>
+                </div>
+                <p>We cannot expect people to have respect for laws and orders until we teach respect to those we have entrusted to enforce those laws all the time. we always want to help people cordially.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="blog-sec">
+              <div class="blog-img">
+                <img src="{% static 'img/blog03.jpg' %}" class="img-responsive">
+              </div>
+              <div class="blog-info">
+                <h2>This is Lorem ipsum heading.</h2>
+                <div class="blog-comment">
+                    <p>Posted In: <span>Legal Advice</span></p>
+                    <p>
+                      <span><a href="#"><i class="fa fa-comments"></i></a> 15</span>
+                      <span><a href="#"><i class="fa fa-eye"></i></a> 11</span></p>
+                </div>
+                <p>We cannot expect people to have respect for laws and orders until we teach respect to those we have entrusted to enforce those laws all the time. we always want to help people cordially.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="blog-sec">
+              <div class="blog-img">
+                <img src="{% static 'img/blog04.jpg' %}" class="img-responsive">
+              </div>
+              <div class="blog-info">
+                <h2>This is Lorem ipsum heading.</h2>
+                <div class="blog-comment">
+                    <p>Posted In: <span>Legal Advice</span></p>
+                    <p>
+                      <span><a href="#"><i class="fa fa-comments"></i></a> 15</span>
+                      <span><a href="#"><i class="fa fa-eye"></i></a> 11</span></p>
+                </div>
+                <p>We cannot expect people to have respect for laws and orders until we teach respect to those we have entrusted to enforce those laws all the time. we always want to help people cordially.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section id="contact" class="section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-head text-center">
+              <h2 class="head-title white">Contact Us</h2>
+              </hr>
+              <p class="head-par white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <br>tempor incididunt ut labore et dolore magna aliqua.</p>
+              <hr>
+            </div>
+            <div class="contact-form">
+              <form>
+                <input class="form-control" placeholder="Name" type="text">
+                <input class="form-control" placeholder="Phone No" type="text">
+                <textarea class="form-control" placeholder="Messages"></textarea>
+                <button type="submit" class="btn btn-block btn-primary border-radius-zero">SEND NOW</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock base_content %}

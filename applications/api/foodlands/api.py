@@ -27,11 +27,10 @@ class BaseRestaurantResource(ModelResource):
         "resource_uri" : "example.url/restaurant-slug"
     }
     """
-
     class Meta:
         queryset = Restaurant.objects.all()
         allowed_methods = ['get']
-        resource_name = 'foodlands'
+        resource_name = 'food-lands-list'
         authorization = DjangoAuthorization()
         fields = ["id", "name", "slug", "address", "city", "phone", "small_description",
                   "restaurant_type", "open_time", "close_time", "main_image", "url"]

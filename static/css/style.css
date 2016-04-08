@@ -1,0 +1,328 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1.5;
+	font-family: 'Raleway', sans-serif;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/******************************
+*******************************
+
+*******************************
+******************************/
+#main-header .navbar-default
+{
+	padding: 15px 0px;
+}
+.navbar-nav > li > a
+{
+	padding: inherit;
+	padding: 5px 8px;
+	margin-right: 10px;
+	font-size: 13px;
+}
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+    background-color: #384D59;
+	color: #fff;
+}
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover
+{
+	background-color: #384D59;
+	color: #fff;
+}
+.navbar-brand
+{
+	height: inherit;
+	padding: 6px;
+    font-weight: bold;
+    color: #384D59 !important;
+}
+#banner
+{
+	background: url('/static/img/banner.jpg') no-repeat fixed;
+    background-size: cover;
+	min-height: 550px;
+}
+h1.banner-text
+{
+	font-family: 'Passion One', cursive;
+	font-weight: 300;
+	color: #fff;
+	font-size: 50px;
+	padding: 80px 0px 0px;
+
+}
+.top-divider {
+    width: 100%;
+    border-top: 2px solid #f8f8f8;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+    display: table;
+    height: 0px;
+    margin-top: 30px;
+    margin-bottom: 0px;
+}
+.banner-par
+{
+	font-size: 15px;
+	color: #fff;
+	padding: 30px 0px;
+}
+.btn-blue
+{
+	background-color: #225378;
+}
+.section-padding
+{
+	padding: 60px 0px; 
+}
+.sec-divider
+{
+	width: 100px;
+    border-top: 2px solid #000;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2);
+    height: 0px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+.head-title 
+{
+	font-size: 35px;
+	text-transform: uppercase;
+}
+.head-par
+{
+	color: #2C3E50;
+	padding: 8px 0px 3px;
+}
+hr {
+    width: 50px;
+    height: 5px;
+    background-color: #F84B4A;
+    margin-bottom: 50px;
+    border: none;
+}
+.pad-bt15 {
+    padding-bottom: 15px;
+}
+.wrap-item h3 {
+    font-size: 24px;
+    line-height: 25px;
+}
+#service
+{
+	background: RGBA(236, 240, 241, 0.21);
+}
+.section-title {
+    margin-top: 15px;
+    width: 100%;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 35px;
+}
+.sub-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #7e8c99;
+    text-transform: uppercase;
+    margin: 25px 0px;
+    line-height: 1.7;
+}
+.property-description-outer p {
+    font-family: "Lato";
+    font-size: 16px;
+    color: #7e8c99;
+    line-height: 1.9;
+}
+.learn-more {
+    height: 50px;
+    width: 175px;
+    background: #1fc055;
+    display: inline-block;
+    text-align: center;
+    color: #ffffff;
+    line-height: 50px;
+    text-transform: uppercase;
+    font-size: 13px;
+    text-decoration: none;
+    margin-right: 10px;
+    margin-top: 45px;
+    text-decoration: none;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+}
+.visit-portfolio {
+    height: 50px;
+    width: 175px;
+    display: inline-block;
+    text-align: center;
+    color: #495376;
+    line-height: 50px;
+    text-transform: uppercase;
+    font-size: 13px;
+    text-decoration: none;
+    border: 1px solid #838aa1;
+    margin-top: 45px;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+}
+.contact-form
+{
+	width: 70%;
+	margin: 0 auto;
+}
+.white
+{
+	color: #fff !important;
+}
+#contact{
+	background: #232c3b;
+}
+.border-radius-zero
+{
+	border-radius: 0px;
+}
+.form-control {
+    background: none;
+    border-radius: 0px;
+    border: 1px solid #384D59;
+    margin-bottom: 20px;
+    height: 40px;
+    font-size: 13px;
+}
+#main-footer
+{
+	background: #161c28;
+	padding: 20px 0px;
+}
+.test-content {
+    border: 1px solid #eef0f2;
+    padding: 30px 30px 50px;
+    margin: 0 auto;
+    font-size: 15px;
+    color: #8a8d94;
+    font-family: 'Ubuntu';
+    font-style: italic;
+    width: 100%;
+    line-height: 26px;
+}
+.bxslider
+{
+	width: 70%;
+	margin: 0 auto;
+}
+.bx-wrapper img {
+    max-width: 100%;
+    display:inline-block; block;
+}
+#testimonial
+{
+	background: url("/static/img/bg.jpg") no-repeat fixed;
+	background-size: cover;
+}
+.bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto {
+    position: absolute;
+    bottom: 0px !important;
+    width: 100%;
+}
+.bx-wrapper {
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    *zoom: 1;
+}
+.padding-right-zero
+{
+	padding-right: 0px;
+}
+.mr-btn-15
+{
+	margin-bottom: 15px;
+}
+.blog-info h2
+{
+    padding: 10px 0px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.blog-comment
+{
+    margin-top: 12px;
+    min-height: 30px;
+}
+.blog-comment p:first-child {
+    float: left;
+    font-size: 12px;
+    color: #474747;
+    font-family: 'Open Sans', sans-serif;
+}
+.blog-comment p:last-child {
+    float: right;
+    font-size: 12px;
+    color: #474747;
+    font-family: 'Open Sans', sans-serif;
+    margin-right: 0;
+}
+.blog-comment p:last-child span a i {
+    font-size: 15px;
+    color: #b8b8b8;
+}
+.blog-comment p:last-child span {
+    margin-left: 10px;
+}
+/***********************************
+************************************
+Responsive media queries
+************************************
+***********************************/
+@media (min-width: 100px) and (max-width: 350px) {
+    .wrap-item
+    {
+        margin-bottom: 15px;
+    }
+    .padding-right-zero
+    {
+        padding-right: 15px
+    }
+}
