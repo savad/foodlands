@@ -68,9 +68,11 @@ INSTALLED_APPS = [
     'tastypie',
     'lxml',
     'defusedxml',
+    'djng',
 ]
 
 MIDDLEWARE_CLASSES = [
+    'djng.middleware.AngularUrlMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

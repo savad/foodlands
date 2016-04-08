@@ -1,0 +1,35 @@
+
+    .main-box {
+    width: 100%;
+    display: block;
+    float: left;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0,20,40,.1);
+    border-radius: 6px;
+    }
+
+    .img-box {
+        border-radius: 6px 6px 0 0;
+    background-size: cover;
+    background-position: center center;
+    overflow: hidden;
+    height: 155px;
+    position: relative;
+    left: 0;
+    right: -1px;
+    }
+
+    .texton-image {
+    position: absolute;
+    bottom: 8px;
+    left: 10px;
+    right: 0;
+    z-index: 2;
+    color: #fff;
+    text-shadow: 0 0 1px rgba(0,0,0,.5);
+    }
+    .texton-image > p {
+        color: #fff;
+    }

@@ -22,8 +22,10 @@ from applications.api.urls import v1_api
 
 
 urlpatterns = [
+    url(r'^', include('applications.home.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include(v1_api.urls)),
+    url(r'^foodlands/', include('applications.foodlands.urls')),
 ]
 
 urlpatterns = patterns('',
