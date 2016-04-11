@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include(v1_api.urls)),
     url(r'^foodlands/', include('applications.foodlands.urls')),
+    url(r'^dish-list/', include('applications.dishes.urls')),
 ]
 
 urlpatterns = patterns('',
