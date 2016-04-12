@@ -10,6 +10,7 @@ from applications.api.dishes import api as dishes_api
 v1_api = Api(api_name='v1')
 v1_api.register(food_lands_api.BaseRestaurantResource())
 v1_api.register(food_lands_api.RestaurantResource())
+v1_api.register(food_lands_api.RestaurantFollowResource())
 v1_api.register(food_lands_specifications_api.CourseResource())
 v1_api.register(food_lands_specifications_api.CuisineResource())
 v1_api.register(food_lands_specifications_api.ServeResource())

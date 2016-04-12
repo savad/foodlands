@@ -2,10 +2,17 @@ __author__ = 'savad'
 from tastypie import fields
 from tastypie.resources import ModelResource
 from tastypie.authorization import DjangoAuthorization
+from tastypie.validation import FormValidation
+from tastypie.authentication import BasicAuthentication,\
+    SessionAuthentication, MultiAuthentication, ApiKeyAuthentication
 
 from applications.foodlands.models import Restaurant
+from applications.activity.follow.models import Follow
+from applications.activity.follow.forms import FollowForm
 from applications.api.foodland_specifications.api import CuisineResource, \
     SuitableResource, ServeResource, HighLightResource
+from applications.api.accounts.api import UserResource
+from applications.api.utils import GenericCreateMixin
 
 
 class BaseRestaurantResource(ModelResource):
@@ -95,3 +102,45 @@ class RestaurantResource(ModelResource):
         resource_name = 'foodlands-detail'
         authorization = DjangoAuthorization()
         excludes = ["created", "published", "search_tags"]
+
+
+class RestaurantFollowResource(GenericCreateMixin, ModelResource):
+    """
+    FOLLOW AND UN-FOLLOW RESTAURANT
+    @inputparams;
+    {
+    "object_id:36"
+    "ApiKey tom:5b645a91095ee7b4837c10f5eaf86806e9f56c08"
+    }
+    @outputparams;
+    {
+    "content_type": "Foodland",
+    "id": 15,
+    "object_id": 1,
+    "resource_uri": "/api/v1/food-land-follow/15/",
+    "user": {
+        "first_name": "Tom",
+        "home_town": "Cochin",
+        "last_name": "KP",
+        "resource_uri": "",
+        "username": "tom"
+        }
+    }
+    """
+    content_type = fields.CharField(attribute='content_type')
+    user = fields.ForeignKey(UserResource, 'user', full=True)
+    model = Follow
+    generic_model = Restaurant
+
+    class Meta:
+        queryset = Follow.objects.all()
+        allowed_methods = ['get', 'post']
+        list_allowed_methods = ['get', 'post']
+        detail_allowed_methods = ['get', 'put', 'delete']
+        resource_name = 'food-land-follow'
+        authorization = DjangoAuthorization()
+        authentication = MultiAuthentication(BasicAuthentication(), SessionAuthentication(),
+                                             ApiKeyAuthentication())
+        form = FormValidation(form_class=FollowForm)
+        always_return_data = True
+        fields = ["id", "object_id"]

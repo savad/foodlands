@@ -4,6 +4,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import ugettext_lazy as _
 
+from tastypie.models import create_api_key
+
 from applications.location.models import City, Place
 from applications.utils.models import TimeStampedBaseModel
 
@@ -25,7 +27,8 @@ class User(AbstractUser, TimeStampedBaseModel):
     current_city = models.ForeignKey(City, verbose_name=_("Current City"),
                                      related_name="get_current_city", null=True, blank=True)
     date_of_birth = models.DateField(_("Date of birth"), blank=True, null=True)
-    gender = models.CharField(_("Gender"), max_length=1, choices=DEFAULT_GENDER_CHOICES, default=MALE)
+    gender = models.CharField(_("Gender"), max_length=1, choices=DEFAULT_GENDER_CHOICES,
+                              default=MALE)
     phone_number = models.CharField(_("Phone Number"), max_length=15, null=True, blank=True)
     about_me = models.TextField(_("About Me"), null=True, blank=True)
     profile_image = models.ImageField(_("Profile Image"), null=True, blank=True)
@@ -41,10 +44,12 @@ class User(AbstractUser, TimeStampedBaseModel):
     tasted_dishes_count = models.IntegerField(_("Dish tasted count"), default=0)
     favourite_dish_count = models.IntegerField(_("Dish favourite count"), default=0)
     recommend_dish_count = models.IntegerField(_("Dish recommend count"), default=0)
-    #user earned points
+    # user earned points
     point = models.IntegerField(default=0)
 
     def __unicode__(self):
         if self.first_name:
             return u'%s %s' % (self.first_name, self.last_name)
         return self.username
+
+models.signals.post_save.connect(create_api_key, sender=User)
