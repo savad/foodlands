@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block titles %}Dishes{% endblock %}
+{% block extra_js %}
+    {% include "angular/DishApp.html" %}
+{% endblock %}
+{% block body_attrs %}{{ block.super }} ng-app="DishApp"{% endblock %}
+{% block base_content %}
+    {% verbatim %}
+    <section id="dishes" class="section-padding" ng-controller="DishListController">
+        <div class="container" ng-init="DishList($event)">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-head text-center">
+                        <h2 class="head-title">Latest From Our Blog</h2>
+                        </hr>
+                        <p class="head-par">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod <br>tempor
+                            incididunt ut labore et dolore magna aliqua.</p>
+                        <hr>
+                    </div>
+                </div>
+
+                <div class="col-md-4" ng-repeat="dish in dish_list">
+                   <div class="main-box">
+                    <div class="img-box" style="display:block; background-image:url('{{ dish.dish_image }}')"></div>
+                       <div class="texton-image">
+                           <h4>{{ dish.name }}</h4>
+                           <p><span>Open time: {{ dish.open_time }}</span><span>Closing time: {{ dish.close_time }}</span></p>
+                       </div>
+                   </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    {% endverbatim %}
+{% endblock base_content %}
