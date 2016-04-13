@@ -12,6 +12,7 @@ class Rating(GenericBaseModel):
     Saving Dishes  Ratings details
     """
     user = models.ForeignKey(User, verbose_name=_('User'))
+    rating = models.PositiveIntegerField(_("Rating"))
 
     def __unicode__(self):
         return u'%s' %(self.user.username)

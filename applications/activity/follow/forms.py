@@ -1,6 +1,11 @@
 __author__ = 'savad'
 from django import forms
 
+from applications.activity.follow.models import Follow
 
-class FollowForm(forms.Form):
-    object_id = forms.CharField(max_length=255)
+
+class FollowForm(forms.ModelForm):
+
+    class Meta:
+        model = Follow
+        fields = ["object_id"]

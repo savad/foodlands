@@ -5,6 +5,8 @@ from django.contrib.contenttypes.models import ContentType
 
 from tastypie.resources import ModelResource
 from tastypie.authorization import DjangoAuthorization
+from tastypie.authentication import BasicAuthentication,\
+    SessionAuthentication, MultiAuthentication, ApiKeyAuthentication
 
 
 class ContentTypeResource(ModelResource):
@@ -54,3 +56,14 @@ class GenericCreateMixin(object):
             return content_object
         except self.model.DoesNotExist:
             return None
+
+
+class BaseMeta:
+    allowed_methods = ['get', 'post']
+    list_allowed_methods = ['get', 'post']
+    detail_allowed_methods = ['get', 'put', 'delete']
+    always_return_data = True
+    include_resource_uri = False
+    authorization = DjangoAuthorization()
+    authentication = MultiAuthentication(BasicAuthentication(), SessionAuthentication(),
+                                         ApiKeyAuthentication())
