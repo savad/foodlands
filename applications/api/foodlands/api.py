@@ -1,4 +1,8 @@
 __author__ = 'savad'
+import ast
+
+from django.contrib.contenttypes.models import ContentType
+
 from tastypie import fields
 from tastypie.resources import ModelResource
 from tastypie.authorization import DjangoAuthorization
@@ -8,17 +12,24 @@ from tastypie.authentication import BasicAuthentication,\
 
 from applications.foodlands.models import Restaurant
 from applications.activity.follow.models import Follow
+from applications.activity.check_in.models import CheckIn
+from applications.activity.recommend.models import Recommend
+from applications.activity.favourite.models import Favourite
+from applications.activity.review.models import Review
 from applications.activity.follow.forms import FollowForm
+from applications.activity.check_in.forms import CheckInForm
+from applications.activity.favourite.forms import FavouriteForm
+from applications.activity.recommend.forms import RecommendForm
+from applications.activity.review.forms import ReviewForm
 from applications.api.foodland_specifications.api import CuisineResource, \
     SuitableResource, ServeResource, HighLightResource
-from applications.api.accounts.api import UserResource
 from applications.api.utils import GenericCreateMixin
 
 
 class BaseRestaurantResource(ModelResource):
     """
     LIST OF ALL RESTAURANTS
-    @outputparams;
+    @output params;
      {
         "name" : "Taj",
         "slug" : "taj",
@@ -46,7 +57,7 @@ class BaseRestaurantResource(ModelResource):
 class RestaurantResource(ModelResource):
     """
     LIST OF ALL RESTAURANTS
-    @outputparams;
+    @output params;
      {
         "name" : "Taj",
         "slug" : "taj",
@@ -107,28 +118,17 @@ class RestaurantResource(ModelResource):
 class RestaurantFollowResource(GenericCreateMixin, ModelResource):
     """
     FOLLOW AND UN-FOLLOW RESTAURANT
-    @inputparams;
+    @input params;
     {
     "object_id:36"
     "ApiKey tom:5b645a91095ee7b4837c10f5eaf86806e9f56c08"
     }
-    @outputparams;
+    @output params;
     {
-    "content_type": "Foodland",
     "id": 15,
-    "object_id": 1,
-    "resource_uri": "/api/v1/food-land-follow/15/",
-    "user": {
-        "first_name": "Tom",
-        "home_town": "Cochin",
-        "last_name": "KP",
-        "resource_uri": "",
-        "username": "tom"
-        }
+    "object_id": 36,
     }
     """
-    content_type = fields.CharField(attribute='content_type')
-    user = fields.ForeignKey(UserResource, 'user', full=True)
     model = Follow
     generic_model = Restaurant
 
@@ -141,6 +141,172 @@ class RestaurantFollowResource(GenericCreateMixin, ModelResource):
         authorization = DjangoAuthorization()
         authentication = MultiAuthentication(BasicAuthentication(), SessionAuthentication(),
                                              ApiKeyAuthentication())
-        form = FormValidation(form_class=FollowForm)
+        validation = FormValidation(form_class=FollowForm)
         always_return_data = True
+        include_resource_uri = False
         fields = ["id", "object_id"]
+
+
+class RestaurantCheckInResource(GenericCreateMixin, ModelResource):
+    """
+    Check-in AND Remove Check-In RESTAURANT
+    @input params;
+    {
+    "object_id:36"
+    "ApiKey tom:5b645a91095ee7b4837c10f5eaf86806e9f56c08"
+    }
+    @output params;
+    {
+    "id": 15,
+    "object_id": 36,
+    }
+    """
+    model = CheckIn
+    generic_model = Restaurant
+
+    class Meta:
+        queryset = CheckIn.objects.all()
+        allowed_methods = ['get', 'post']
+        list_allowed_methods = ['get', 'post']
+        detail_allowed_methods = ['get', 'put', 'delete']
+        resource_name = 'food-land-check-in'
+        authorization = DjangoAuthorization()
+        authentication = MultiAuthentication(BasicAuthentication(), SessionAuthentication(),
+                                             ApiKeyAuthentication())
+        validation = FormValidation(form_class=CheckInForm)
+        always_return_data = True
+        include_resource_uri = False
+        fields = ["id", "object_id"]
+
+
+class RestaurantFavouriteResource(GenericCreateMixin, ModelResource):
+    """
+    Favourite AND Remove Favourite RESTAURANT
+    @input params;
+    {
+    "object_id:36"
+    "ApiKey tom:5b645a91095ee7b4837c10f5eaf86806e9f56c08"
+    }
+    @output params;
+    {
+    "id": 15,
+    "object_id": 36,
+    }
+    """
+    model = Favourite
+    generic_model = Restaurant
+
+    class Meta:
+        queryset = Favourite.objects.all()
+        allowed_methods = ['get', 'post']
+        list_allowed_methods = ['get', 'post']
+        detail_allowed_methods = ['get', 'put', 'delete']
+        resource_name = 'food-land-favourite'
+        authorization = DjangoAuthorization()
+        authentication = MultiAuthentication(BasicAuthentication(), SessionAuthentication(),
+                                             ApiKeyAuthentication())
+        validation = FormValidation(form_class=FavouriteForm)
+        always_return_data = True
+        include_resource_uri = False
+        fields = ["id", "object_id"]
+
+
+class RestaurantRecommendResource(GenericCreateMixin, ModelResource):
+    """
+    Recommend AND Remove Recommend RESTAURANT
+    @input params;
+    {
+    "object_id:36"
+    "ApiKey tom:5b645a91095ee7b4837c10f5eaf86806e9f56c08"
+    }
+    @output params;
+    {
+    "id": 15,
+    "object_id": 36,
+    }
+    """
+    model = Recommend
+    generic_model = Restaurant
+
+    class Meta:
+        queryset = Recommend.objects.all()
+        allowed_methods = ['get', 'post']
+        list_allowed_methods = ['get', 'post']
+        detail_allowed_methods = ['get', 'put', 'delete']
+        resource_name = 'food-land-recommend'
+        authorization = DjangoAuthorization()
+        authentication = MultiAuthentication(BasicAuthentication(), SessionAuthentication(),
+                                             ApiKeyAuthentication())
+        validation = FormValidation(form_class=RecommendForm)
+        always_return_data = True
+        include_resource_uri = False
+        fields = ["id", "object_id"]
+
+
+class RestaurantReviewResource(ModelResource):
+    """
+    Favourite AND Remove Favourite RESTAURANT
+    @input params;
+    {
+    "object_id":36,
+    "ApiKey tom:5b645a91095ee7b4837c10f5eaf86806e9f56c08"
+    }
+    @output params;
+    {
+    "id": 15,
+    "object_id": 36,
+    }
+    """
+    model = Review
+    generic_model = Restaurant
+
+    class Meta:
+        queryset = Review.objects.all()
+        allowed_methods = ['get', 'post']
+        list_allowed_methods = ['get', 'post']
+        detail_allowed_methods = ['get', 'put', 'delete']
+        resource_name = 'food-land-review'
+        authorization = DjangoAuthorization()
+        authentication = MultiAuthentication(BasicAuthentication(), SessionAuthentication(),
+                                             ApiKeyAuthentication())
+        validation = FormValidation(form_class=ReviewForm)
+        always_return_data = True
+        include_resource_uri = False
+        fields = ["id", "object_id"]
+
+    def obj_create(self, bundle, **kwargs):
+        bundle.obj = self._meta.object_class()
+        kwargs["user"] = bundle.request.user
+        kwargs["content_type"] = ContentType.objects.get_for_model(self.generic_model)
+        data = ast.literal_eval(bundle.request.body)
+        review_text = data.get('review_text')
+        object_id = data.get('object_id')
+        instance = self.get_review_instance(object_id, bundle.request.user)
+        if not review_text and instance:
+            kwargs["id"], kwargs["pk"] = instance.id, instance.id
+        for key, value in kwargs.items():
+            setattr(bundle.obj, key, value)
+        bundle = self.full_hydrate(bundle)
+        if not review_text and instance:
+            self.update_food_land_rating(instance, data)
+            return bundle
+        return self.save(bundle)
+
+    def get_review_instance(self, object_id, user):
+        content_type = ContentType.objects.get_for_model(Restaurant)
+        try:
+            content_object = Review.objects.get(content_type=content_type, user=user,
+                                                object_id=object_id, expire=False)
+            return content_object
+        except self.model.DoesNotExist:
+            return None
+
+    def update_food_land_rating(self, instance, data):
+        instance.food_rating = data.get('food_rating') if data.get('food_rating') \
+            else instance.food_rating
+        instance.ambiance_rating = data.get('ambiance_rating') if data.get('ambiance_rating') \
+            else instance.ambiance_rating
+        instance.service_rating = data.get('service_rating') if data.get('service_rating') \
+            else instance.service_rating
+        instance.save()
+        return True
