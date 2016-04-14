@@ -183,16 +183,18 @@ class DishTastedResource(GenericCreateMixin, ModelResource):
 
 class DishRatingResource(GenericCreateMixin, ModelResource):
     """
-    Tasted AND Remove Tasted Dish
+    Dish Rating
     @input params;
     {
-    "object_id:36"
+    "object_id": 36,
+    "rating": 3,
     "ApiKey tom:5b645a91095ee7b4837c10f5eaf86806e9f56c08"
     }
     @output params;
     {
     "id": 15,
     "object_id": 36,
+    "rating": 3
     }
     """
     model = Rating

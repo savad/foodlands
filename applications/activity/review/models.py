@@ -75,7 +75,7 @@ def update_feed(sender, instance, **kwargs):
 post_save.connect(update_feed, sender=Review, dispatch_uid="add_review_to_feed")
 
 
-def delete_item_from_feed(sender, instance, **kwargs):
+def remove_item_from_feed(sender, instance, **kwargs):
     try:
         feed = Feed.objects.get(content_type=ContentType.objects.get_for_model(Review),
                                 object_id=instance.id)
@@ -83,4 +83,4 @@ def delete_item_from_feed(sender, instance, **kwargs):
         feed.save()
     except Feed.ObjectDoesNotExist:
         pass
-pre_delete.connect(delete_item_from_feed, sender=Review, dispatch_uid="delete_from_feed")
+pre_delete.connect(remove_item_from_feed, sender=Review, dispatch_uid="remove_item_from_feed")

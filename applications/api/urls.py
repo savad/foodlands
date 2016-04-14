@@ -5,6 +5,7 @@ from applications.api.foodlands import api as food_lands_api
 from applications.api.foodland_specifications import api as food_lands_specifications_api
 from applications.api.locations import api as locations_api
 from applications.api.dishes import api as dishes_api
+from applications.api.feed import api as feed_api
 
 
 v1_api = Api(api_name='v1')
@@ -31,3 +32,6 @@ v1_api.register(dishes_api.DishFollowResource())
 v1_api.register(dishes_api.DishRecommendResource())
 v1_api.register(dishes_api.DishTastedResource())
 v1_api.register(dishes_api.DishRatingResource())
+v1_api.register(feed_api.FeedLikeResource())
+v1_api.register(feed_api.FeedCommentResource())
+v1_api.register(feed_api.FeedCommentLikeResource())

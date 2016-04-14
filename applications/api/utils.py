@@ -8,6 +8,8 @@ from tastypie.authorization import DjangoAuthorization
 from tastypie.authentication import BasicAuthentication,\
     SessionAuthentication, MultiAuthentication, ApiKeyAuthentication
 
+from applications.activity.ratings.models import Rating
+
 
 class ContentTypeResource(ModelResource):
     """
@@ -58,7 +60,7 @@ class GenericCreateMixin(object):
             return None
 
 
-class BaseMeta:
+class BaseMeta(object):
     allowed_methods = ['get', 'post']
     list_allowed_methods = ['get', 'post']
     detail_allowed_methods = ['get', 'put', 'delete']
