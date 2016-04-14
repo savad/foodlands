@@ -4,10 +4,10 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from applications.accounts.models import User
 
-from applications.utils.models import GenericBaseModel
+from applications.utils.models import TimeStampedBaseModel
 
 
-class FoodieFollow(GenericBaseModel):
+class FoodieFollow(TimeStampedBaseModel):
     """
     Saving Foodies Follow details
     """
