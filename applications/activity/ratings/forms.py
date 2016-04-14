@@ -13,6 +13,7 @@ class RatingForm(forms.ModelForm):
 
     def clean_rating(self):
         rating = self.cleaned_data["rating"]
-        if rating>5 or rating<1:
-            raise forms.ValidationError(_("Invalid data."))
+        print rating, "ddddddddddddd"
+        if rating>5:
+            raise forms.ValidationError(_("Ensure this value is less than or equal to 5."))
         return rating

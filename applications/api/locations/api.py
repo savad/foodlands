@@ -9,7 +9,7 @@ from applications.location.models import Place, City, State, Country
 class CountryResource(ModelResource):
     """
     List of all Country
-    @outputparams;
+    @output params;
      {
         "id" : 1,
         "name" : "India",
@@ -29,7 +29,7 @@ class CountryResource(ModelResource):
 class StateResource(ModelResource):
     """
     List of all States
-    @outputparams;
+    @output params;
      {
         "id" : 1,
         "name" : "Kerala",
@@ -49,7 +49,7 @@ class StateResource(ModelResource):
 class CityResource(ModelResource):
     """
     List of all Cuisine
-    @outputparams;
+    @output params;
      {
         "id" : 1,
         "name" : "Kochi",
@@ -71,7 +71,7 @@ class CityResource(ModelResource):
 class PlaceResource(ModelResource):
     """
     List of all Cuisine
-    @outputparams;
+    @output params;
      {
         "id" : 1,
         "name" : "Kakkanadu",
