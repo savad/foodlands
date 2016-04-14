@@ -29,7 +29,7 @@ class Restaurant(TimeStampedBaseModel):
     lng = models.CharField(_('Longitude'), max_length=100, null=True, blank=True)
     phone = models.CharField(max_length=20, null=True, blank=True)
     small_description = models.TextField(verbose_name=_('Small Description'), null=True, blank=True)
-    detailed_describtion = RichTextField(help_text=_('Detailed Description'), null=True, blank=True)
+    detailed_description = RichTextField(help_text=_('Detailed Description'), null=True, blank=True)
     restaurant_type = models.CharField(_('Restaurant Type'), max_length=1,
                                        choices=TYPE_CHOICE, default=NON_VEG)
     main_image = models.ImageField(_('Main Image '), null=True, blank=True)
