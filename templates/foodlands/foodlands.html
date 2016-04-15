@@ -21,12 +21,15 @@
                 </div>
 
                 <div class="col-md-4" ng-repeat="food_land in food_lands">
-                   <div class="main-box">
-                    <div class="img-box" style="display:block; background-image:url('{{ food_land.main_image }}')"></div>
+                   <div class="main-box list-box">
+                    <div class="img-box" style="display:block; background-image:url('{{ food_land.main_image }}')">
+
+                    </div>
                        <div class="texton-image">
                            <h4>{{ food_land.name }}</h4>
-                           <p>{{ food_land.city }}</p>
+                           <p>{{ food_land.address }}</p>
                        </div>
+                       <div class="rating-box">2.6</div>
                    </div>
                 </div>
 

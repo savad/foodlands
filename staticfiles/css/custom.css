@@ -23,7 +23,7 @@
 
     .texton-image {
     position: absolute;
-    bottom: 8px;
+    top: 100px;
     left: 10px;
     right: 0;
     z-index: 2;
@@ -33,3 +33,7 @@
     .texton-image > p {
         color: #fff;
     }
+.list-box{ height: 250px; border: 1px solid #CCD1D9;}
+.rating-box{ width: 50px; height: 40px; color: #fff; text-align: center;
+    background-color: #0000ff; position: absolute; top:105px; right: 0;
+    border-radius: 5px; padding-top: 8px; right: 10px;}
