@@ -3,6 +3,6 @@ from django.conf.urls import patterns, url
 
 from applications.foodlands import views
 
-urlpatterns = patterns('',
-                       url(r'^$', views.FoodlandsView.as_view(), name='foodlands'),
-                       )
+urlpatterns = [
+    url(r'^$', views.FoodlandsView.as_view(), name='foodlands'),
+]

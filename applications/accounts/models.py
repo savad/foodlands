@@ -52,4 +52,10 @@ class User(AbstractUser, TimeStampedBaseModel):
             return u'%s %s' % (self.first_name, self.last_name)
         return self.username
 
+    def image_thumbnail(self):
+        if self.profile_image:
+            return u'<img src="%s" height = "40" width= "50"/>' % self.profile_image.url
+        return None
+    image_thumbnail.allow_tags=True
+
 models.signals.post_save.connect(create_api_key, sender=User)
