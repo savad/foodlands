@@ -16,6 +16,7 @@ FoodLandsApp.controller("FoodLandsController", [
                 $scope.food_lands = [];
             }
             ListFoodsLands.get(next_url_params, function (data) {
+                console.log(data.objects);
                 $scope.food_lands = $scope.food_lands.concat(data.objects);
                 if(data.next) {
                     $scope.next_url_params = getUrlVars(data.next);

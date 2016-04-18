@@ -17,6 +17,7 @@ from django.conf.urls import url, include, patterns
 from django.contrib import admin
 from django.conf import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.conf.urls.static import static
 
 from applications.api.urls import v1_api
 
@@ -27,11 +28,7 @@ urlpatterns = [
     url(r'^api/', include(v1_api.urls)),
     url(r'^foodlands/', include('applications.foodlands.urls')),
     url(r'^dish-list/', include('applications.dishes.urls')),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-urlpatterns = patterns('',
-    url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
-        {'document_root': settings.MEDIA_ROOT,}),
-) + urlpatterns
 
 urlpatterns += staticfiles_urlpatterns()

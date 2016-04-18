@@ -43,6 +43,10 @@ class BaseRestaurantResource(ModelResource):
         "main_image" : "image.jpg"
         "average_cost" : 20
         "resource_uri" : "example.url/restaurant-slug"
+        "average_rating" : 2.6,
+        "follow_count" : 254,
+        "recommend_count" : 365,
+        "favourite_count" : 652
     }
     """
     class Meta:
@@ -51,7 +55,13 @@ class BaseRestaurantResource(ModelResource):
         resource_name = 'food-lands-list'
         authorization = DjangoAuthorization()
         fields = ["id", "name", "slug", "address", "city", "phone", "small_description",
-                  "restaurant_type", "open_time", "close_time", "main_image", "url"]
+                  "restaurant_type", "open_time", "close_time", "main_image", "url",
+                  "follow_count", "recommend_count", "favourite_count"]
+
+    def dehydrate(self, bundle):
+        bundle.data['average_rating'] = (bundle.obj.foodlands_food_rating + bundle.obj.foodlands_ambiance_rating
+                                         + bundle.obj.foodlands_service_rating)/3
+        return bundle
 
 
 class RestaurantResource(ModelResource):

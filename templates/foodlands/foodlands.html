@@ -20,15 +20,38 @@
                     </div>
                 </div>
 
+
                 <div class="col-md-4" ng-repeat="food_land in food_lands">
-                   <div class="main-box">
-                    <div class="img-box" style="display:block; background-image:url('{{ food_land.main_image }}')"></div>
-                       <div class="texton-image">
-                           <h4>{{ food_land.name }}</h4>
-                           <p>{{ food_land.city }}</p>
-                       </div>
+                    <div class="main-box list-box">
+                        <div class="img-box" style="display:block; background-image:url('{{ food_land.main_image }}')">
+                            <div class="veg" ng-if="food_land.restaurant_type == 'v'"><div class="circle"></div></div>
+                            <div class="non-veg" ng-if="food_land.restaurant_type == 'n'"><div class="circle"></div></div>
+                        </div>
+                        <div class="texton-image">
+                            <h4>{{ food_land.name }}</h4>
+                            <p>{{ food_land.address }}</p>
+                        </div>
+                        <div class="rating-box">{{ food_land.average_rating }}</div>
+                        <div class="main-box-content">
+                            <i class="fa fa-clock-o" aria-hidden="true"></i> <span>Time</span> - {{ food_land.open_time }} to {{ food_land.close_time }}
+                            <ul>
+                                <li>
+                                    <span><i class="fa fa-arrow-right main-box-stat" aria-hidden="true"></i></span>
+                                    {{ food_land.follow_count }} Followers
+                                </li>
+                                <li>
+                                    <span><i class="fa fa-heart main-box-stat" aria-hidden="true"></i></span>
+                                    {{ food_land.favourite_count }} Favourites
+                                </li>
+                                <li>
+                                    <span><i class="fa fa-thumbs-up main-box-stat" aria-hidden="true"></i></span>
+                                    {{ food_land.recommend_count }} Recommends
+                                </li>
+                            </ul>
+                        </div>
                    </div>
                 </div>
+
 
             </div>
         </div>
