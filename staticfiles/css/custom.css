@@ -33,7 +33,21 @@
     .texton-image > p {
         color: #fff;
     }
-.list-box{ height: 250px; border: 1px solid #CCD1D9;}
+.list-box{ height: auto; border: 1px solid #CCD1D9;}
 .rating-box{ width: 50px; height: 40px; color: #fff; text-align: center;
-    background-color: #0000ff; position: absolute; top:105px; right: 0;
+    background-color: #384D59; position: absolute; top:105px; right: 0;
     border-radius: 5px; padding-top: 8px; right: 10px;}
+.main-box-content{padding: 10px; font-size: 14px;}
+.main-box-content span{ font-weight: bold; }
+.main-box-stat{ width: 30px; height: 30px; border-radius: 6px; background-color: #F5F7FA;
+        margin-top: 15px; border: 1px solid #E6E9ED; text-align: center; padding-top: 8px;
+        }
+.main-box-content ul{margin: 0px; padding: 0px; font-size: 13px;}
+.main-box-content ul li{display: inline-block; margin-right: 15px;}
+.veg{width: 20px; height: 20px; background-color: #FFF; border: 1px solid #008000; position: relative;}
+.veg .circle{ border-radius: 50%; width: 8px; height: 8px; background-color: #008000; position: absolute;
+        top:5px; left: 5px;}
+
+.non-veg{width: 20px; height: 20px; background-color: #FFF; border: 1px solid red; position: relative;}
+.non-veg .circle{ border-radius: 50%; width: 8px; height: 8px; background-color: red; position: absolute;
+        top:5px; left: 5px;}
