@@ -13,5 +13,5 @@ baseApp.factory("ListFoodsLands", [
 baseApp.factory("DishList", [
     "$resource", "djangoUrl",
     function ($resource, djangoUrl) {
-        return $resource(djangoUrl.reverse('api_dispatch_list', kwargs={'resource_name': 'dish-list', 'api_name': 'v1'}));
+        return $resource(djangoUrl.reverse('api_dispatch_list', kwargs={'resource_name': 'dish-detail', 'api_name': 'v1'}));
     }]);

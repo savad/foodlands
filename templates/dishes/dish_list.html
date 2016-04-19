@@ -20,15 +20,39 @@
                     </div>
                 </div>
 
+
                 <div class="col-md-4" ng-repeat="dish in dish_list">
-                   <div class="main-box">
-                    <div class="img-box" style="display:block; background-image:url('{{ dish.dish_image }}')"></div>
-                       <div class="texton-image">
-                           <h4>{{ dish.name }}</h4>
-                           <p><span>Open time: {{ dish.open_time }}</span><span>Closing time: {{ dish.close_time }}</span></p>
-                       </div>
+                    <div class="main-box list-box">
+                        <div class="img-box" style="display:block; background-image:url('{{ dish.dish_image }}')">
+                            <div class="veg" ng-if="dish.dish_type == 'v'"><div class="circle"></div></div>
+                            <div class="non-veg" ng-if="dish.dish_type == 'n'"><div class="circle"></div></div>
+                        </div>
+                        <div class="texton-image">
+                            <h4>{{ dish.name }}</h4>
+                            <p>{{ dish.restaurant.name }}, {{ dish.restaurant.address }}</p>
+                        </div>
+                        <div class="rating-box">{{ dish.foodlands_rating }}</div>
+                        <div class="main-box-content">
+                            <i class="fa fa-clock-o" aria-hidden="true"></i>
+                            <span>Time</span> - {{ dish.open_time }} to {{ dish.close_time }}
+                            <ul>
+                                <li>
+                                    <span><i class="fa fa-check-square-o main-box-stat" aria-hidden="true"></i></span>
+                                    {{ dish.tasted_count }} Tasted
+                                </li>
+                                <li>
+                                    <span><i class="fa fa-heart main-box-stat" aria-hidden="true"></i></span>
+                                    {{ dish.favourite_count }} Favourites
+                                </li>
+                                <li>
+                                    <span><i class="fa fa-thumbs-up main-box-stat" aria-hidden="true"></i></span>
+                                    {{ dish.recommend_count }} Recommends
+                                </li>
+                            </ul>
+                        </div>
                    </div>
                 </div>
+
 
             </div>
         </div>
