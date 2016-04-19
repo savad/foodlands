@@ -53,7 +53,6 @@ class BaseRestaurantResource(ModelResource):
         queryset = Restaurant.objects.all()
         allowed_methods = ['get']
         resource_name = 'food-lands-list'
-        authorization = DjangoAuthorization()
         fields = ["id", "name", "slug", "address", "city", "phone", "small_description",
                   "restaurant_type", "open_time", "close_time", "main_image", "url",
                   "follow_count", "recommend_count", "favourite_count"]
@@ -121,7 +120,6 @@ class RestaurantResource(ModelResource):
         queryset = Restaurant.objects.all()
         allowed_methods = ['get']
         resource_name = 'foodlands-detail'
-        authorization = DjangoAuthorization()
         excludes = ["created", "published", "search_tags"]
 
 

@@ -7,7 +7,7 @@ DishApp.controller("DishListController", [
     function ($scope, djangoUrl, $http, $log, DishList) {
 
         // List food lands
-        $scope.DishList = function ($event) { console.log("hhhh")
+        $scope.DishList = function ($event) {
             elmt = event.target;
             if('next_url_params' in $scope){
                 next_url_params = $scope.next_url_params
@@ -25,7 +25,5 @@ DishApp.controller("DishListController", [
                 }
             })
         };
-
-
     }
 ]);

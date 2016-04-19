@@ -42,7 +42,6 @@ class BaseDishResource(ModelResource):
         queryset = Dish.objects.all()
         allowed_methods = ['get']
         resource_name = 'dish-list'
-        authorization = DjangoAuthorization()
         fields = ["id", "name", "slug", "description", "dish_image", "open_time", "close_time",
                   "dish_type", "price"]
 
@@ -81,7 +80,6 @@ class DishResource(ModelResource):
         queryset = Dish.objects.all()
         allowed_methods = ['get']
         resource_name = 'dish-detail'
-        authorization = DjangoAuthorization()
         excludes = ["created", "published", "search_tags"]
 
 
